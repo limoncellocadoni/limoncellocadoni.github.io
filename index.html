@@ -7,20 +7,40 @@
   <meta name="description" content="Limoncello fatto in casa con passione, secondo la tradizione. Limoncello Cadoni.">
 
   <style>
-    .section-img{
+    
+    .gallery-title{
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: #3b2f2f;
+  font-style: italic;
+}
+
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.gallery-grid img{
   width: 100%;
-  max-height: 272px;
+  aspect-ratio: 1 / 1; /* rende le immagini quadrate */
   object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid #eadfbc;
-  margin: 0.8rem 0 0.2rem;
+  border-radius: 6px; /* leggermente smussate, eleganti */
   display: block;
 }
 
-.section-img-caption{
-  font-size: 0.85rem;
-  opacity: 0.8;
-  margin-top: 0.3rem;
+/* Responsive */
+@media (max-width: 900px){
+  .gallery-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px){
+  .gallery-grid{
+    grid-template-columns: 1fr;
+  }
 }
 
     :root {
@@ -632,39 +652,25 @@ To receive more information or request a quote, simply contact Giancarlo Cadoni 
       <h3 class="lang-it">Dalla montagna di Vairano Patenora alle nostre bottiglie</h3>
       <h3 class="lang-en">From the Vairano Patenora mountain to our bottles</h3>
 
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
+      <div class="gallery-grid">        
             <img
             class="section-img"
             src="Foto 1.png"
             alt="Preparazione"
             loading="eager"
           />
-          </div>          
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
             <img
             class="section-img"
             src="Foto 2.png"
             alt="Preparazione"
             loading="eager"
-          />
-          </div>          
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
+          />          
             <img
             class="section-img"
             src="Foto 3.png"
             alt="Preparazione"
             loading="eager"
-          />
-          </div>      
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
+          />          
             <img
             class="section-img"
             src="Foto 4.png"
