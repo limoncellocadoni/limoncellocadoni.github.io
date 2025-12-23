@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Limoncello Cadoni</title>
+  <meta name="description" content="Limoncello fatto in casa con passione, secondo la tradizione. Limoncello Cadoni.">
+
+  <style>
+    :root {
+      --bg: #f7f1e3;
+      --accent: #d4a017;
+      --accent-dark: #8a6b1f;
+      --green: #527a3a;
+      --text: #3b2f2f;
+      --light: #fffaf0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f9e29b, #f5d26b);
+      border-bottom: 2px solid rgba(0,0,0,0.1);
+      padding: 1.5rem 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* ✅ LOGO ufficiale */
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.45);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text h1 {
+      font-size: 1.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 0.4rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.1);
+      background-color: rgba(255,255,255,0.5);
+    }
+
+    nav a:hover {
+      background-color: var(--accent);
+      color: #fff;
+      border-color: var(--accent-dark);
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .lang-btn {
+      cursor: pointer;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-dark);
+      background-color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+    }
+
+    .lang-btn.active { background-color: var(--accent-dark); color: #fff; }
+
+    main { padding: 2rem 0 3rem; }
+
+    section {
+      margin-bottom: 3rem;
+      background-color: var(--light);
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    section.hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      align-items: center;
+      gap: 2rem;
+      background: radial-gradient(circle at top left, #fffde7, #f7f1e3);
+    }
+
+    .hero-text h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--green);
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--green);
+      color: #fff;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-highlight {
+      margin-top: 0.8rem;
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    .hero-visual {
+      border-radius: 16px;
+      background: linear-gradient(150deg, #fff9c4, #f1e2b3);
+      border: 2px solid rgba(0,0,0,0.08);
+      padding: 1.2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255,255,255,0.7);
+      pointer-events: none;
+    }
+
+    /* ✅ Logo nel box hero */
+    .hero-logo {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.10);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.55);
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bottle {
+      width: 70px;
+      height: 190px;
+      margin: 0 auto 0.7rem;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fefbd1, #f6d355);
+      border: 2px solid rgba(0,0,0,0.15);
+      position: relative;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .bottle::before {
+      content: "";
+      position: absolute;
+      top: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26px;
+      height: 32px;
+      background: #f1eee1;
+      border-radius: 8px 8px 4px 4px;
+      border: 2px solid rgba(0,0,0,0.15);
+    }
+
+    .bottle-label {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 40%;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-dark);
+      text-align: center;
+      padding: 0.2rem;
+    }
+
+    .hero-visual p { font-size: 0.9rem; position: relative; z-index: 1; }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--green);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--accent-dark);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+    }
+
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.4rem; }
+
+    .quote-box {
+      border-left: 4px solid var(--accent);
+      padding-left: 0.8rem;
+      font-style: italic;
+      font-size: 0.95rem;
+      background-color: rgba(255,255,255,0.6);
+      border-radius: 6px;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-item {
+      background-color: #fdf8ea;
+      border-radius: 10px;
+      padding: 0.6rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .gallery-placeholder {
+      height: 130px;
+      border-radius: 8px;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.9) 6px,
+        rgba(244,227,178,0.9) 6px,
+        rgba(244,227,178,0.9) 12px
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(0,0,0,0.4);
+      font-size: 0.8rem;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .contact-details p { margin-bottom: 0.4rem; }
+
+    .contact-highlight {
+      font-weight: bold;
+      color: var(--accent-dark);
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.6);
+      margin-top: 0.6rem;
+    }
+
+    .card {
+      padding: 0.9rem;
+      background-color: #fdf8ea;
+      border-radius: 10px;
+      border: 1px dashed rgba(0,0,0,0.15);
+      font-size: 0.9rem;
+    }
+
+    /* ✅ Box speciale per "filosofia & dettagli" */
+    .craft-box {
+      border: 1px solid rgba(0,0,0,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(253,248,234,0.95));
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-top: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 1.2rem 1rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: rgba(0,0,0,0.7);
+      background-color: #f6f0e4;
+    }
+
+    footer span { opacity: 0.8; }
+
+    /* Language handling */
+    .lang-it { display: block; }
+    .lang-en { display: none; }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      section.hero { grid-template-columns: 1fr; }
+      .two-columns, .contact-box { grid-template-columns: 1fr; }
+      .logo-title { flex-direction: column; align-items: flex-start; }
+      header { padding-bottom: 1rem; }
+      .brand-logo { width: 52px; height: 52px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-title">
+        <div class="brand">
+          <!-- ✅ Inserisci il file logo nella stessa cartella di index.html -->
+          <img
+            class="brand-logo"
+            src="logo-limoncello-cadoni.jpg"
+            alt="Logo Limoncello Cadoni"
+            loading="eager"
+          />
+          <div class="brand-text">
+            <h1>Limoncello Cadoni</h1>
+            <span>Liquore fatto in casa • Homemade Limoncello</span>
+          </div>
+        </div>
+
+        <div>
+          <nav>
+            <ul>
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#story">Storia / Story</a></li>
+              <li><a href="#method">Metodo / Method</a></li>
+              <li><a href="#gallery">Galleria / Gallery</a></li>
+              <li><a href="#contact">Contatti / Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="lang-switch">
+            <span>Lingua / Language:</span>
+            <button class="lang-btn active" data-lang="it" type="button">IT</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-text">
+        <div class="lang-it">
+          <span class="badge">Ricetta di famiglia</span>
+          <h2>Limoncello fatto in casa, come una volta.</h2>
+          <p>
+            Limoncello Cadoni nasce da una passione genuina: limoni scelti a mano,
+            pazienza, e il desiderio di condividere un piccolo pezzo di Mediterraneo in ogni bicchiere.
+          </p>
+          <p class="hero-highlight">
+            Non un'azienda, ma un rito di famiglia: poche bottiglie, ma curate fino all’ultimo dettaglio.
+          </p>
+        </div>
+
+        <div class="lang-en">
+          <span class="badge">Family recipe</span>
+          <h2>Homemade limoncello, the traditional way.</h2>
+          <p>
+            Limoncello Cadoni is born from a genuine passion: hand-picked lemons,
+            patience, and the desire to share a little piece of the Mediterranean in every glass.
+          </p>
+          <p class="hero-highlight">
+            Not a company, but a family ritual: fewer bottles, crafted with obsessive care.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img
+          class="hero-logo"
+          src="logo-limoncello-cadoni.jpg"
+          alt="Logo Limoncello Cadoni"
+          loading="lazy"
+        />
+
+        <div class="bottle">
+          <div class="bottle-label">
+            Limoncello<br>Cadoni
+          </div>
+        </div>
+
+        <p class="lang-it">
+          Prodotto artigianale, realizzato in piccole quantità, con attenzione ai dettagli e rispetto della tradizione.
+        </p>
+        <p class="lang-en">
+          Handcrafted in small batches, with attention to detail and deep respect for tradition.
+        </p>
+      </div>
+    </section>
+
+    <!-- STORIA / STORY -->
+    <section id="story">
+      <div class="section-subtitle lang-it">La storia</div>
+      <div class="section-subtitle lang-en">The story</div>
+      <h3 class="lang-it">Una passione che profuma di limoni</h3>
+      <h3 class="lang-en">A passion scented with lemons</h3>
+
+      <div class="two-columns">
+        <div>
+          <p class="lang-it">
+            Tutto comincia con pochi limoni, una cucina di casa e la curiosità di ricreare quel sapore
+            che si trova solo nelle vecchie case di famiglia, dopo un pranzo della domenica.
+          </p>
+          <p class="lang-it">
+            Con il tempo la ricetta è stata perfezionata, migliorando i tempi di infusione, la scelta dell'alcol,
+            l'equilibrio tra dolcezza e intensità. <strong>Limoncello Cadoni</strong> è diventato così un piccolo
+            rituale: si prepara con calma, si regala a chi sa apprezzare le cose fatte a mano.
+          </p>
+
+          <p class="lang-en">
+            It all begins with a few lemons, a home kitchen and the curiosity to recreate that flavour
+            you only find in old family houses, after a long Sunday lunch.
+          </p>
+          <p class="lang-en">
+            Over time, the recipe has been refined: infusion time, choice of alcohol,
+            balance between sweetness and intensity. <strong>Limoncello Cadoni</strong> has become a small ritual:
+            made slowly, given to those who truly appreciate handcrafted things.
+          </p>
+        </div>
+
+        <div>
+          <div class="quote-box lang-it">
+            “Un buon limoncello non ha fretta: si prepara in silenzio, riposa al buio
+            e aspetta il momento giusto per essere condiviso.”
+          </div>
+          <div class="quote-box lang-en">
+            “A good limoncello is never in a rush: it’s made in silence, rests in the dark
+            and waits for the right moment to be shared.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODO / METHOD -->
+    <section id="method">
+      <div class="section-subtitle lang-it">Il metodo</div>
+      <div class="section-subtitle lang-en">The method</div>
+      <h3 class="lang-it">Tradizione, pazienza, selezione</h3>
+      <h3 class="lang-en">Tradition, patience, selection</h3>
+
+      <div class="two-columns">
+        <div>
+          <!-- ✅ Nuova descrizione valorizzante (IT) -->
+          <div class="lang-it">
+            <p>
+              Il cuore di Limoncello Cadoni non è solo la ricetta: è la disciplina con cui si fa ogni gesto.
+              Si parte dai limoni <strong>coltivati al 100% a Vairano Patenora</strong>, scelti a mano e
+              <strong>non trattati</strong> con agenti tipici delle produzioni di massa: l’obiettivo è preservare
+              l’aroma puro degli oli essenziali.
+            </p>
+            <p>
+              La fase più importante è la lavorazione della buccia: si rimuove con cura <strong>solo la parte gialla</strong>,
+              evitando il più possibile l’albedo (la parte bianca). È qui che si decide il carattere del liquore:
+              niente asprezze inutili, ma <strong>dolcezza naturale</strong> e profumo pulito.
+            </p>
+
+            <ul>
+              <li><strong>Selezione:</strong> limoni locali, profumati, raccolti al punto giusto</li>
+              <li><strong>Scorza “gialla”:</strong> solo zest, niente parte bianca per evitare l’amaro/aspro</li>
+              <li><strong>Infusione lenta:</strong> tempo e buio, senza scorciatoie</li>
+              <li><strong>Equilibrio:</strong> zucchero dosato per esaltare, non coprire, il limone</li>
+              <li><strong>Riposo:</strong> affinamento al fresco per un gusto rotondo e armonioso</li>
+            </ul>
+
+            <div class="craft-box">
+              <p>
+                <strong>Filosofia Cadoni:</strong> meglio produrre <strong>poche bottiglie</strong> e garantire
+                il massimo per ciascuna. L’attenzione ai dettagli — dalla scorza al riposo — è ciò che fa la differenza:
+                un limoncello che non “urla”, ma convince al primo sorso.
+              </p>
+              <p class="small-note">
+                La ricetta completa resta un segreto di casa: ciò che conta, alla fine, è il sorriso di chi lo assaggia.
+              </p>
+            </div>
+          </div>
+
+          <!-- ✅ New story/value description (EN) -->
+          <div class="lang-en">
+            <p>
+              The heart of Limoncello Cadoni is not only the recipe: it’s the discipline behind every single step.
+              It starts with lemons <strong>grown 100% in Vairano Patenora</strong>, hand-selected and
+              <strong>untreated</strong> by mass-production agents—so the aroma of essential oils stays pure.
+            </p>
+            <p>
+              The most important phase is peeling: we carefully remove <strong>only the yellow zest</strong>,
+              avoiding the white pith. This is where the soul of the limoncello is decided:
+              no harsh bitterness, just <strong>natural sweetness</strong> and a clean, elegant fragrance.
+            </p>
+
+            <ul>
+              <li><strong>Selection:</strong> local, fragrant lemons, picked at the right moment</li>
+              <li><strong>Yellow zest only:</strong> no pith, to avoid bitterness/harshness</li>
+              <li><strong>Slow infusion:</strong> time and darkness, no shortcuts</li>
+              <li><strong>Balance:</strong> sugar tuned to highlight the lemon, not mask it</li>
+              <li><strong>Resting:</strong> cool maturation for a round, harmonious flavour</li>
+            </ul>
+
+            <div class="craft-box">
+              <p>
+                <strong>The Cadoni philosophy:</strong> better to make <strong>fewer bottles</strong> and ensure
+                the highest quality in every one. Attention to detail—from zest to resting—is what makes the difference:
+                a limoncello that doesn’t “shout”, but wins you over on the first sip.
+              </p>
+              <p class="small-note">
+                The full recipe remains a family secret: what matters most is the smile of the person tasting it.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="lang-it">
+            <strong>Nota importante:</strong> Limoncello Cadoni è una produzione casalinga,
+            frutto di passione e tradizione, non una vendita commerciale organizzata.
+          </p>
+          <p class="lang-en">
+            <strong>Important note:</strong> Limoncello Cadoni is a homemade production,
+            born from passion and tradition, not an organized commercial business.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERIA / GALLERY -->
+    <section id="gallery">
+      <div class="section-subtitle lang-it">Galleria</div>
+      <div class="section-subtitle lang-en">Gallery</div>
+      <h3 class="lang-it">Scorci di limoni, vetro e luce</h3>
+      <h3 class="lang-en">Glimpses of lemons, glass and light</h3>
+
+      <p class="lang-it">
+        Alcune idee di come potranno apparire le bottiglie, i limoni e i piccoli dettagli che raccontano
+        il carattere di Limoncello Cadoni. Le immagini reali possono essere aggiunte in seguito.
+      </p>
+      <p class="lang-en">
+        A few ideas of how bottles, lemons and small details might look,
+        telling the character of Limoncello Cadoni. Real photos can be added later.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-placeholder">Qui una foto di limoni freschi</div>
+          <div class="lang-it">Limoni appena raccolti, pronti per essere trasformati.</div>
+          <div class="lang-en">Freshly picked lemons, ready to be transformed.</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">Qui una foto delle bottiglie</div>
+          <div class="lang-it">Bottiglie di limoncello, allineate in controluce.</div>
+          <div class="lang-en">Limoncello bottles, lined up against the light.</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">Qui una foto del tavolo di lavoro</div>
+          <div class="lang-it">Il tavolo di cucina dove tutto prende forma.</div>
+          <div class="lang-en">The kitchen table where everything takes shape.</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">Qui una foto del dettaglio etichetta</div>
+          <div class="lang-it">Un dettaglio dell’etichetta “Cadoni”.</div>
+          <div class="lang-en">A detail of the “Cadoni” label.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI / CONTACT -->
+    <section id="contact">
+      <div class="section-subtitle lang-it">Contatti</div>
+      <div class="section-subtitle lang-en">Contact</div>
+      <h3 class="lang-it">Un bicchiere di limoncello si beve in compagnia</h3>
+      <h3 class="lang-en">A glass of limoncello is made to be shared</h3>
+
+      <div class="contact-box">
+        <div class="contact-details">
+          <p class="lang-it">
+            Per informazioni, curiosità o semplicemente per fare una chiacchierata sul limoncello fatto in casa:
+          </p>
+          <p class="lang-en">
+            For questions, curiosity or just a friendly chat about homemade limoncello:
+          </p>
+
+          <p class="contact-highlight">
+            📧 Email: <em>nome@example.com</em><br>
+            📸 Instagram: <em>@limoncellocadoni</em>
+          </p>
+
+          <p class="lang-it small-note">
+            I contatti sono indicativi: possono essere adattati in base alle preferenze personali
+            (solo amici, cerchia ristretta, o pubblico più ampio).
+          </p>
+          <p class="lang-en small-note">
+            The contacts above are only examples: they can be adjusted based on personal preferences
+            (friends only, close circle, or a wider audience).
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="lang-it">
+            Questo sito vuole essere un piccolo omaggio alla cura artigianale:
+            un modo per dire “il tuo limoncello merita una vetrina tutta sua”.
+          </p>
+          <p class="lang-en">
+            This website is meant as a small tribute to handcrafted care:
+            a way to say “your limoncello deserves a place of its own”.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="lang-it">
+      Limoncello Cadoni — Produzione casalinga, nata per passione e condivisione.
+    </span>
+    <span class="lang-en">
+      Limoncello Cadoni — Homemade production, born from passion and sharing.
+    </span>
+  </footer>
+
+  <script>
+    const langButtons = document.querySelectorAll(".lang-btn");
+    const itElems = document.querySelectorAll(".lang-it");
+    const enElems = document.querySelectorAll(".lang-en");
+
+    function setLanguage(lang) {
+      if (lang === "it") {
+        itElems.forEach(el => el.style.display = "block");
+        enElems.forEach(el => el.style.display = "none");
+      } else {
+        itElems.forEach(el => el.style.display = "none");
+        enElems.forEach(el => el.style.display = "block");
+      }
+
+      langButtons.forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+        btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
+      });
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    // Default
+    setLanguage("it");
+  </script>
+</body>
+</html>
